@@ -33,6 +33,17 @@
      {
          console.log('HOoorey');
      }
+     handleChange = (e) => 
+     {
+        this.setState({
+            name: e.target.value
+        })
+     }
+     handleSubmit = (e) =>
+     {
+         e.preventDefault();
+         console.log('Form is Submitted', this.state.name);
+     }
      render(){
          return(
              <div>
@@ -41,6 +52,10 @@
              <button onClick={this.handleClick}>Click Me</button>
              <button onMouseOver={this.handleMouseOver}>Mouse Over</button>
              <p onCopy={this.handleCopy}>Copy Component</p>
+             <form onSubmit={this.handleSubmit}>
+              <input type="text" onChange={this.handleChange}/>
+              <button>Submit</button>
+             </form>
              </div>
          )
      }
